@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<!DOCTYPE html>
+<!DOCTYPE html>
+<!DOCTYPE html>
+<!DOCTYPE html>
+<!DOCTYPE html>
+<!DOCTYPE html>
+<!DOCTYPE html>
+<!DOCTYPE html>
+<!DOCTYPE html>
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>الصفحة الشخصية - شريف عامر</title>
+
+  <!-- خطوط وأيقونات -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- تنسيقات CSS -->
+  <style>
+  
+  
+  .menu-toggle {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  nav#main-nav {
+    display: none;
+    width: 100%;
+    background-color: #444;
+    margin-top: 10px;
+  }
+
+  nav#main-nav ul {
+    flex-direction: column;
+    gap: 0;
+    padding: 10px 0;
+  }
+
+  nav#main-nav ul li {
+    border-top: 1px solid #555;
+    padding: 10px 20px;
+  }
+
+  nav#main-nav ul li a {
+    color: white;
+  }
+
+  nav#main-nav.active {
+    display: block;
+  }
+}
+
+  
+  
+  
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background-color: #fff;
+      color: #333;
+      direction: rtl;
+    }
+
+    header {
+      background-color: #333;
+      color: white;
+      padding: 10px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 15px;
+    }
+
+    .social-icons a {
+      color: white;
+      font-size: 20px;
+      transition: color 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      color: #00c6ff;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #00c6ff;
+    }
+
+    .hero {
+      position: relative;
+      height: 100vh;
+      background-image: url('https://www.rj7.com.sa/images/asha-banner.jpg');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: right;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      color: white;
+      max-width: 600px;
+      padding: 20px;
+    }
+
+    .hero-content h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .hero-content p {
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+
+    .hero-content a {
+      display: inline-block;
+      padding: 10px 24px;
+      background-color: #00c6ff;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
+
+    .hero-content a:hover {
+      background-color: #009edc;
+    }
+
+    section {
+      padding: 80px 40px;
+      text-align: right;
+    }
+
+    section h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: #222;
+    }
+
+    section p, section ul {
+      font-size: 18px;
+      line-height: 1.8;
+      color: #444;
+    }
+
+    section ul {
+      padding-right: 20px;
+    }
+
+    section ul li {
+      margin-bottom: 10px;
+    }
+
+    #about {
+      background-color: #f9f9f9;
+    }
+
+    #certificates {
+      background-color: #eef3f7;
+    }
+
+    #projects {
+      background-color: #fff9f0;
+    }
+
+    #projects .project-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    #projects .project-item {
+      flex: 1;
+      min-width: 250px;
+      text-align: center;
+    }
+
+    #projects .project-item img {
+      width: 100%;
+      max-width: 250px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 8px;
+      transition: transform 0.3s;
+    }
+
+    #projects .project-item img:hover {
+      transform: scale(1.05);
+    }
+
+    #contact {
+      background-color: #f1f1f1;
+      padding: 40px;
+      text-align: right;
+    }
+
+    #contact a {
+      display: inline-block;
+      padding: 10px 24px;
+      background-color: #25d366;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+    }
+
+    #contact a:hover {
+      background-color: #128c7e;
+    }
+
+    /* ✅ استجابة التصميم للجوال */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+        text-align: right;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 10px;
+      }
+
+      .social-icons {
+        margin-top: 10px;
+      }
+
+      .hero {
+        height: auto;
+        padding: 40px 20px;
+        text-align: right;
+      }
+
+      .hero-content h1 {
+        font-size: 24px;
+        line-height: 1.6;
+      }
+
+      .hero-content p {
+        font-size: 16px;
+      }
+
+      .hero-content a {
+        font-size: 16px;
+        padding: 10px 20px;
+      }
+
+      section {
+        padding: 40px 20px;
+      }
+
+      section h2 {
+        font-size: 28px;
+      }
+
+      section p, section ul {
+        font-size: 16px;
+      }
+
+      #projects .project-grid {
+        flex-direction: column;
+      }
+
+      #projects .project-item img {
+        width: 100%;
+        height: auto;
+      }
+
+      #contact a {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- باقي الصفحة زي ما كانت -->
+  <!-- الهيدر، المحتوى، الأقسام كلها زي كودك السابق وبتشتغل بدون أي تغيير -->
+
+</body>
+</html>
+
+
+  <header>
+  <div class="logo">شريف عامر</div>
+
+  <div class="menu-toggle" onclick="toggleMenu()">
+    <i class="fas fa-bars"></i>
+  </div>
+
+  <nav id="main-nav">
+    <ul>
+      <li><a href="#">الرئيسية</a></li>
+      <li><a href="#about">عنّي</a></li>
+      <li><a href="#projects">مشاريع شاركت في تنفيذها</a></li>
+      <li><a href="#certificates">الشهادات</a></li>
+      <li><a href="#contact">اتصل بي</a></li>
+      <li><a href="https://drive.google.com/file/d/1U1Dlxtv2xYPMWuM0JpB7-K4ZhTQu-xLr/view?usp=sharing" target="_blank">تحميل السيرة الذاتية</a></li>
+    </ul>
+  </nav>
+
+  <div class="social-icons">
+    <a href="https://www.facebook.com/share/15V8JpxiUf/?mibextid=wwXIfr" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.instagram.com/sherif684?igsh=bGtqdzM4ZmI3ajE3&utm_source=qr" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://wa.me/966549758154" target="_blank"><i class="fab fa-whatsapp"></i></a>
+  </div>
+</header>
+
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>مراقب مستندات متخصص في تنظيم وأرشفة الوثائق وضمان الامتثال لأعلى معايير الجودة</h1>
+      <p>خبرة في مراقبة الوثائق، إدارة المشاريع، والتحول الرقمي.</p>
+      <a href="#about">اعرف أكثر</a>
+    </div>
+  </section>
+
+    <section id="about">
+    <h2>نبذة عني</h2>
+    <p>
+      أنا متخصص في إدارة الوثائق بخبرة تزيد عن 6 سنوات في تنظيم وإدارة الوثائق بما يضمن الامتثال لمعايير الجودة والمتطلبات التنظيمية. أتقن أنظمة إدارة الوثائق الإلكترونية (EDMS) مثل Aconex وSharePoint وSAP DMS، بما يشمل أرشفة الوثائق، تدقيق البيانات، مراقبة الالتزام وتحسين سير العمل.
+      <br><br>
+      طورت خلال مسيرتي المهنية مهارات قوية في تنسيق الوثائق، التحكم في الإصدارات، إعداد التقارير، والامتثال لمعايير ISO 9001 وISO 27001. وقد ساهمت في تنفيذ أفضل الممارسات التي ساعدت على تنظيم الوثائق بشكل فعّال وآمن، مما أدى إلى رفع كفاءة العمليات وتبسيط سير العمل في المؤسسات.
+      <br><br>
+      أنشأت أنظمة أرشفة فعّالة تسهّل الوصول إلى الوثائق وتقلل من الأخطاء التشغيلية، كما لعبت دورًا محوريًا في تدريب الفرق على أفضل ممارسات إدارة الوثائق. بالإضافة إلى ذلك، أتمتع بخبرة في تحليل البيانات، تحسين سير العمل، والتعاون بين الأقسام لتسهيل إدارة الوثائق.
+      <br><br>
+      أحمل عدة شهادات احترافية تشمل: شهادة التحكم في الوثائق على نظام Aconex، إدارة المشاريع (PM)، برمجة VBA باستخدام Excel، وأساسيات الأمن السيبراني، مما يعزز قدرتي على تقديم قيمة حقيقية للمؤسسات التي أعمل معها.
+      <br><br>
+      أبحث حاليًا عن فرصة لتطبيق خبراتي ومهاراتي في بيئة عمل ديناميكية تهدف إلى تعزيز الكفاءة والامتثال التنظيمي وأمن البيانات من خلال استراتيجيات إدارة وثائق فعّالة.
+    </p>
+  </section>
+
+
+
+
+ <section id="projects">
+  <h2>مشاريع شاركت في تنفيذها</h2>
+  <div class="project-grid" style="display: flex; flex-wrap: wrap; gap: 20px;">
+  
+    <div class="project-item" style="flex: 1; min-width: 250px; text-align: center;">
+      <h3>مشروع آشـــــا</h3>
+      <a href="https://maps.app.goo.gl/DkALVnh3DtyVaxtr8" target="_blank">
+        <img src="HTML1.jpg" alt="مشروع آشا" style="width: 250px; height: 160px; object-fit: cover; border-radius: 8px;">
+      </a>
+    </div>
+
+    <div class="project-item" style="flex: 1; min-width: 250px; text-align: center;">
+      <h3>مشروع بيزنس لين</h3>
+      <a href="https://maps.app.goo.gl/9t2AWTewgDwXGndM6" target="_blank">
+        <img src="https://via.placeholder.com/200" alt="مشروع بيزنس لين" style="width: 250px; height: 160px; object-fit: cover; border-radius: 8px;">
+      </a>
+    </div>
+
+    <div class="project-item" style="flex: 1; min-width: 250px; text-align: center;">
+      <h3>مشروع ثروات النخلة</h3>
+      <a href="https://maps.app.goo.gl/eVXkzghWqp4D7YeE7" target="_blank">
+        <img src="HTML3.jpg" alt="مشروع ثروات النخلة" style="width: 250px; height: 160px; object-fit: cover; border-radius: 8px;">
+      </a>
+    </div>
+
+    <div class="project-item" style="flex: 1; min-width: 250px; text-align: center;">
+      <h3>مشروع مجمع سهيل</h3>
+      <a href="https://maps.app.goo.gl/8npYFY2VzrEYgGfC8" target="_blank">
+        <img src="HTML2.jpg" alt="مشروع مجمع سهيل" style="width: 250px; height: 160px; object-fit: cover; border-radius: 8px;">
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+  <!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الشهادات</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <section id="certificates">
+    <h2>الشهادات</h2>
+    <ul>
+	
+	<li>
+        University degrees | Higher Institute of Computer
+Science and Management
+Technology, sohag | 2019
+        <a href="https://drive.google.com/file/d/1mWHQSj5_5ypgm1OITks6Ze744nQq6sZ0/view?usp=sharing" target="_blank">
+          <button class="certificate-btn">عرض الشهادة</button>
+        </a>
+      
+	
+	
+      <li>
+        DOCUMENT CONTROL CERTIFICATE ON ACONEX SYSTEM | Udemy | Feb 2025
+        <a href="https://www.udemy.com/certificate/UC-46a40af0-44a3-4182-b72c-2ec62df2ced2/" target="_blank">
+          <button class="certificate-btn">عرض الشهادة</button>
+        </a>
+      </li>
+      <li>
+        QUALITY DOCUMENT CONTROLLER | Udemy
+        <a href="https://www.udemy.com/certificate/UC-094b213c-8f0d-4866-a2af-d272462b8b08/" target="_blank">
+          <button class="certificate-btn">عرض الشهادة</button>
+        </a>
+      </li>
+      <li>
+        ENGLISH LANGUAGE COURSE | Sohag University | May 2018
+        <a href="https://example.com/certificate3" target="_blank">
+          <button class="certificate-btn">عرض الشهادة</button>
+        </a>
+      </li>
+      <li>
+        INTERNATIONAL COMPUTER DRIVING LICENSE (ICDL) | Cairo University | Nov 2018
+        <a href="https://example.com/certificate4" target="_blank">
+          <button class="certificate-btn">عرض الشهادة</button>
+        </a>
+      </li>
+      <li>
+        INTERNET & COMPUTING CORE CERTIFICATION (IC3) | Sohag University | Dec 2018
+        <a href="https://drive.google.com/file/d/1yk3j3D44dT7otfp7Wqt_TX1V2Isr1Nxs/view?usp=sharing" target="_blank">
+          <button class="certificate-btn">عرض الشهادة</button>
+        </a>
+      </li>
+      <li>
+        INTERNET & COMPUTING CORE CERTIFICATION (IC3) | International Academy
+        <a href="https://drive.google.com/file/d/1F2QErjRGNJpsT2dZ04YVnL-AC8utm9-M/view?usp=sharing" target="_blank">
+          <button class="certificate-btn">عرض الشهادة</button>
+        </a>
+      </li>
+      <li>
+        INTERNATIONAL COMPUTER DRIVING LICENSE (ICDL) | Edraak | Mar 2019
+        <a href="https://drive.google.com/file/d/1D1r6AFL_9TbGsSExfQlIiJItjyyh1jDv/view?usp=sharing" target="_blank">
+          <button class="certificate-btn">عرض الشهادة</button>
+        </a>
+      </li>
+      <li>
+        PROGRAMMING VBA USING EXCEL | Edraak | Feb 2025
+        <a href="https://programs.edraak.org/learn/verify-certificate/b7366828d1d744878568659f34fa4e5e/?lang=ar" target="_blank">
+          <button class="certificate-btn">عرض الشهادة</button>
+        </a>
+      </li>
+      <li>
+        PROJECT MANAGEMENT (FOUNDATION, PLANNING, EXECUTION TO CLOSURE) | Edraak | Mar 2025
+        <a href="https://programs.edraak.org/learn/verify-certificate/d61f703f02b74edaba98a4bad7e0156b/?lang=ar" target="_blank">
+          <button class="certificate-btn">عرض الشهادة</button>
+        </a>
+      </li>
+      <li>
+        FOUNDATIONS OF CYBERSECURITY | Coursera, Google
+        <a href="https://www.coursera.org/account/accomplishments/verify/LFYJAWXTD162" target="_blank">
+          <button class="certificate-btn">عرض الشهادة</button>
+        </a>
+      </li>
+      <li>
+        PRIMAVERA | Maearif | Mar 2025
+        <a href="https://www.m3aarf.com/student/certificate/8a559174" target="_blank">
+          <button class="certificate-btn">عرض الشهادة</button>
+        </a>
+      </li>
+      <li>
+        REPORTING SKILLS | SDEEM | Mar 2025
+        <a href="https://sdeem.org/certifications/9e7c0322-0da7-46a4-b919-f74ca80da457" target="_blank">
+          <button class="certificate-btn">عرض الشهادة</button>
+        </a>
+      </li>
+      <li>
+        COMMUNICATION SKILLS | Coursera, Google | Mar 2025
+        <a href="https://example.com/certificate13" target="_blank">
+          <button class="certificate-btn">عرض الشهادة</button>
+        </a>
+      </li>
+      <li>
+        TIME AND STRESS MANAGEMENT | Edraak | Mar 2025
+        <a href="https://programs.edraak.org/learn/verify-certificate/335466c6b81b430183afd0c026614177/?lang=ar" target="_blank">
+          <button class="certificate-btn">عرض الشهادة</button>
+        </a>
+      </li>
+    </ul>
+  </section>
+
+</body>
+</html>
+
+
+
+
+
+  <section id="contact">
+    <h2>اتصل بي</h2>
+    <p>للتواصل المباشر عبر واتساب:</p>
+    <a href="https://wa.me/966549758154" target="_blank">اضغط هنا للتواصل على واتساب</a>
+    <br><br>
+    <p>أو الاتصال مباشرة:</p>
+    <a href="tel:+966549758154">+966549758154</a>
+  </section>
+
+<script>
+  function toggleMenu() {
+    var nav = document.getElementById("main-nav");
+    nav.classList.toggle("active");
+  }
+</script>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
