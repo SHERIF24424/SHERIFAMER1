@@ -24,7 +24,39 @@
   <!-- تنسيقات CSS -->
   <style>
   
-  
+  .hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  text-align: right;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-size: cover;
+  background-position: center;
+  transition: opacity 1s ease-in-out;
+  z-index: 0;
+  opacity: 0;
+}
+
+.hero-bg.show {
+  opacity: 1;
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: white;
+  padding: 20px;
+  max-width: 600px;
+}
+
   .menu-toggle {
   display: none;
   font-size: 24px;
@@ -129,17 +161,22 @@
       color: #00c6ff;
     }
 
-    .hero {
-      position: relative;
-      height: 100vh;
-      background-image: url('https://www.rj7.com.sa/images/asha-banner.jpg');
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: right;
-    }
+   
+  .hero {
+    position: relative;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    transition: opacity 1s ease-in-out;
+    opacity: 1;
+  }
+
+  .hero.fade-out {
+    opacity: 0;
+  }
+
+
+
 
     .hero::after {
       content: '';
@@ -330,20 +367,12 @@
       }
     }
   </style>
-	<script>
-  function toggleMenu() {
-    var nav = document.getElementById("main-nav");
-    nav.classList.toggle("active");
-  }
-</script>
-
 </head>
 <body>
 
   <!-- باقي الصفحة زي ما كانت -->
   <!-- الهيدر، المحتوى، الأقسام كلها زي كودك السابق وبتشتغل بدون أي تغيير -->
 
-</body>
 </html>
 
 
@@ -374,14 +403,18 @@
 
 
   <section class="hero">
-    <div class="hero-content">
-      <h1>مراقب مستندات متخصص في تنظيم وأرشفة الوثائق وضمان الامتثال لأعلى معايير الجودة</h1>
-      <p>خبرة في مراقبة الوثائق، إدارة المشاريع، والتحول الرقمي.</p>
-      <a href="#about">اعرف أكثر</a>
-    </div>
-  </section>
+  <div class="hero-bg" id="bg1"></div>
+  <div class="hero-bg" id="bg2"></div>
 
-    <section id="about" style="background-color: #f9f9f9;">
+  <div class="hero-content">
+    <h1>مراقب مستندات متخصص في تنظيم وأرشفة الوثائق وضمان الامتثال لأعلى معايير الجودة</h1>
+    <p>خبرة في مراقبة الوثائق، إدارة المشاريع، والتحول الرقمي.</p>
+    <a href="#about">اعرف أكثر</a>
+  </div>
+</section>
+
+
+   <section id="about" style="background-color: #f9f9f9;">
   <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 40px; padding: 40px 20px;">
     
     <!-- ✅ صورة شخصية -->
@@ -407,6 +440,7 @@
 
   </div>
 </section>
+
 
 
 
@@ -565,7 +599,7 @@ Technology, sohag | 2019
 
 
 
- <section id="contact">
+  <section id="contact">
     <h2>اتصل بي</h2>
     <p>للتواصل المباشر عبر واتساب:</p>
     <a href="https://wa.me/966549758154" target="_blank">اضغط هنا للتواصل على واتساب</a>
@@ -575,11 +609,58 @@ Technology, sohag | 2019
   <p>للتواصل معي مباشرة عبر البريد الإلكتروني:</p>
   <a href="mailto:sherif.amer.24424@gmail.com
 ">إرسال رسالة عبر البريد الإلكتروني</a>
+  </section>
 
+<style>
+  .hero {
+    transition: background-image 1s ease-in-out;
+  }
+</style>
+
+<script>
+  const bg1 = document.getElementById('bg1');
+  const bg2 = document.getElementById('bg2');
+
+  const images = [
+    'HTML13.jpg',
+   'HTML5.jpg',
+   'HTML6.jpg',
+   'HTML7.jpg',
+   'HTML8.jpg',
+   'HTML10.jpg',
+   'HTML11.jpg',
+   'HTML12.jpg',
+   ];
+
+  let current = 0;
+  let showingBg1 = true;
+
+  // إعداد أول صورة
+  bg1.style.backgroundImage = `url('${images[current]}')`;
+  bg1.classList.add('show');
+
+  setInterval(() => {
+    current = (current + 1) % images.length;
+    const nextBg = showingBg1 ? bg2 : bg1;
+    const currentBg = showingBg1 ? bg1 : bg2;
+
+    nextBg.style.backgroundImage = `url('${images[current]}')`;
+    nextBg.classList.add('show');
+    currentBg.classList.remove('show');
+
+    showingBg1 = !showingBg1;
+  }, 4000); // كل ٤ ثواني
+</script>
+t>
 
 
 </body>
 </html>
+
+
+
+
+
 
 
 
