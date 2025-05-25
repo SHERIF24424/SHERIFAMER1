@@ -355,6 +355,37 @@
         text-align: center;
       }
     }
+	  #projects {
+  background-color: #3c3c3c; /* نفس درجة الرمادي الداكن في الصورة */
+  padding: 80px 40px;
+  border-radius: 16px;
+}
+
+#projects h2,
+#projects h3 {
+  color: #d29a52; /* ذهبي فاخر ناعم نفس اللي في الصورة */
+  font-weight: bold;
+  text-align: center;
+}
+
+#projects .project-item img {
+  width: 100%;
+  max-width: 250px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(210, 154, 82, 0.25); /* ظل ناعم ذهبي */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#projects .project-item img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 25px rgba(210, 154, 82, 0.45); /* تأثير احترافي عند التحريك */
+}
+
+#projects .project-item h3 {
+  margin-top: 15px;
+  font-size: 20px;
   </style>
 </head>
 <body>
